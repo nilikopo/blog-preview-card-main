@@ -1,110 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Outfit:wght@100..900&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-@font-face {
-    font-family: "Figtree Medium";
-    src: url(./assets/fonts/static/Figtree-Medium.ttf) format("ttf");
-}
-@font-face {
-    font-family: "Figtree ExtraBold";
-    src: url(./assets/fonts/static/Figtree-ExtraBold.ttf) format("ttf");
 }
 :root {
     --color-white: hsl(0, 0%, 100%);
     --color-yellow: hsl(47, 88%, 63%);
     --color-gray500: hsl(0, 0%, 42%);
     --color-gray950: hsl(0, 0%, 7%);
-    --font-size: 16px;
-    --border-radius: 10px;
+    --font-size: 14px;
+    --border-radius1: 20px;
+    --border-radius2: 10px;
+    --main-padding: 24px;
+    --card-content-padding: 12px;
+    --learning-button-radius: 4px;
+    --line-height: 150%;
 }
 
 html {
     font-size: var(--font-size);
-    font-family: "Figtree Medium", sans-serif;
+    font-family: Figtree, sans-serif;
 }
-
-body {
+.card-container {
     height: 100dvh;
+    width: 100%;
+
     background-color: var(--color-yellow);
 
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.card-wrapper {
+.card{
     background-color: var(--color-white);
-    border: 1px solid;
-    border-radius: var(--border-radius);
 
-    padding: 20px;
+    width: 384px;
+    height: 522px;
+
+    padding: var(--main-padding);
+
+    border-radius: var(--border-radius1);
+
+    border: 1px solid;
+
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+.image-container{
+    width: auto;
+    height: 200px;
+
+    border-radius: var(--border-radius2);
+    margin-bottom: var(--main-padding);
+
+    background-image: url(./assets/images/illustration-article.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: var(--border-radius2);
+}
+/* .image-container>img {
+    border-radius: inherit;
+    height: inherit;
+    width: inherit;
+} */
+.card-content{
+    margin-bottom: var(--main-padding);
+
+    color: var(--color-gray950);
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    box-shadow: 16px 15px 0px -3px var(--color-gray950);
-
-    width: 350px;
+    gap: var(--card-content-padding);
 }
-.top-picture-wrapper{
-    /* background-color: black; */
-    height: 185px;
-    width: 310px;
-    /* width: fit-content; */
-}
-.top-picture{
-    width: inherit;
-    height: inherit;
-    /* display: none; */
-    /* height: 185px; */
-
-    border-radius: 10px;
-}
-.mblock10{
-    margin-block: 10px;
-}
-.date{
-    font-weight: 500;
-}
-h1{
-    font-size: 1.4em;
-    font-weight: 800;
-
-    font-family: "Figtree ExtraBold";
-}
-.learning-holder{
-
-    padding: 5px;
-    border-radius: 5px;
-    font-family: "Figtree ExtraBold";
-    font-weight: 800;
+.learning-button{
+    border-radius: var(--learning-button-radius);
 
     background-color: var(--color-yellow);
+
+    color: inherit;
+    font-weight: 800;
+    line-height: var(--line-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 82px;
+    height: 29px;
 }
-.title-text{
+.publish-date{
+    font-weight: 500;
+    color: inherit;
+    line-height: var(--line-height);
+}
+.title{
+    color: inherit;
+    line-height: var(--line-height);
+    font-size: 24px;
+
+    transition: all .2s;
+}
+.description{
+    line-height: var(--line-height);
+    font-size: 16px;
     color: var(--color-gray500);
 }
-.author-holder {
+.author-container{
+    color: var(--color-gray950);
+
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 
-    font-weight: 500;
-    gap: 10px;
+    gap: var(--card-content-padding);
+}
+.author-name{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    color: inherit;
+    font-weight: 800;
+    line-height: var(--line-height);
 }
 
-@media (max-width: 500px) {
-    .card-wrapper{
+.title:hover{
+    color: var(--color-yellow);
+    cursor: pointer;
+}
+
+@media (max-width: 455px) {
+    .card{
+        width: 327px;
+    }
+    .image-container{
+        width: 279px;
+    }
+    .title{
+        font-size: 20px;
+    }
+    .learning-button{
+        font-size: 12px;
+    }
+    .publish-date{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .card{
         width: 300px;
     }
-    .top-picture-wrapper{
-        /* background-color: black; */
-        width: 260px;
-        height: 155px;
+    .image-container{
+        width: auto;
     }
-    /* .top-picture {
-        width: 260px;
-    } */
+    .description{
+        font-size: 14px;
+    }
 }
